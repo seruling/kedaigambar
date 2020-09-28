@@ -1,34 +1,57 @@
 on aws ubuntu 18.04 with the default username of ubuntu run the following with root priv
 
-//first
+<h5>first</h5>
 apt update
 
-//install bla bla
+<h5>install bla bla</h5>
 apt install -y git apache2 mysql-server php libapache2-mod-php php-mysql php-gd php-zip php-cli
 
-//replace default apache file
+<h5>replace default apache file</h5>
 echo 1 > /var/www/html/index.html
 
-//download the code into web root
+<h5>download the code into web root</h5>
 git clone https://github.com/seruling/kedaigambar.git /var/www/html/kedaigambar
 
-//so that not root
+<h5>so that not root</h5>
 chown -R ubuntu:ubuntu /var/www/html/kedaigambar/
 
-//so that can upload
+<h5>so that can upload</h5>
 chmod 777 /var/www/html/kedaigambar/images/
 
-//create a db
+<h5>create a db</h5>
 mysql -uroot -e "create database kedaigambar"
 
-//create a db user
+<h5>create a db user</h5>
 mysql -uroot -e "CREATE USER 'kedaigambar'@'%' IDENTIFIED BY 'MySQL@332'"
 
-//give user the priv to access db
+<h5>give user the priv to access db</h5>
 mysql -uroot -e "GRANT ALL PRIVILEGES ON kedaigambar.* TO 'kedaigambar'@'%'"
 
-//load sql
+<h5>load sql</h5>
 mysql -uroot kedaigambar < /var/www/html/kedaigambar/kedaigambar.sql
 
-//remove sql file within the web root
+<h5>remove sql file within the web root</h5>
 rm -rf /var/www/html/kedaigambar/kedaigambar.sql
+
+or, put the following kedaigambar.sh file
+```bash
+#!/bin/bash
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+apt update
+apt install -y git apache2 mysql-server php libapache2-mod-php php-mysql php-gd php-zip php-cli
+echo 1 > /var/www/html/index.html
+git clone https://github.com/seruling/kedaigambar.git /var/www/html/kedaigambar
+chown -R ubuntu:ubuntu /var/www/html/kedaigambar/
+chmod 777 /var/www/html/kedaigambar/images/
+mysql -uroot -e "create database kedaigambar"
+mysql -uroot -e "CREATE USER 'kedaigambar'@'%' IDENTIFIED BY 'MySQL@332'"
+mysql -uroot -e "GRANT ALL PRIVILEGES ON kedaigambar.* TO 'kedaigambar'@'%'"
+mysql -uroot kedaigambar < /var/www/html/kedaigambar/kedaigambar.sql
+rm -rf /var/www/html/kedaigambar/kedaigambar.sql
+```
+chmod +x kedaigambar.sh
+./kedaigambar.sh
