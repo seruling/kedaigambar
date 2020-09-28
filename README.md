@@ -2,39 +2,38 @@ on aws ubuntu 18.04 with the default username of ubuntu run the following with r
 
 <h3>option 1</h3>
 
-**first**
-
+**first**<br/>
 apt update
 
-**install bla bla**
+**install bla bla**<br/>
 apt install -y git apache2 mysql-server php libapache2-mod-php php-mysql php-gd php-zip php-cli
 
 
-**replace default apache file**
+**replace default apache file**<br/>
 echo 1 > /var/www/html/index.html
 
-**download the code into web root**
+**download the code into web root**<br/>
 git clone https://github.com/seruling/kedaigambar.git /var/www/html/kedaigambar
 
-**so that not root**
+**so that not root**<br/>
 chown -R ubuntu:ubuntu /var/www/html/kedaigambar/
 
-**so that can upload**
+**so that can upload**<br/>
 chmod 777 /var/www/html/kedaigambar/images/
 
-**create a db**
+**create a db**<br/>
 mysql -uroot -e "create database kedaigambar"
 
-**create a db user**
+**create a db user**<br/>
 mysql -uroot -e "CREATE USER 'kedaigambar'@'%' IDENTIFIED BY 'MySQL@332'"
 
-**give user the priv to access db**
+**give user the priv to access db**<br/>
 mysql -uroot -e "GRANT ALL PRIVILEGES ON kedaigambar.* TO 'kedaigambar'@'%'"
 
-**load sql**
+**load sql**<br/>
 mysql -uroot kedaigambar < /var/www/html/kedaigambar/kedaigambar.sql
 
-**remove sql file within the web root**
+**remove sql file within the web root**<br/>
 rm -rf /var/www/html/kedaigambar/kedaigambar.sql
 
 <h3>option 2</h3>
@@ -60,5 +59,5 @@ mysql -uroot kedaigambar < /var/www/html/kedaigambar/kedaigambar.sql
 rm -rf /var/www/html/kedaigambar/kedaigambar.sql
 ```
 
-chmod +x kedaigambar.sh
+chmod +x kedaigambar.sh<br/>
 ./kedaigambar.sh
