@@ -4,7 +4,9 @@ on aws ubuntu 18.04 with the default username of ubuntu run the following with r
 
 <h5>first</h5>
 ```bash
+
 apt update
+
 ```
 
 <h5>install bla bla</h5>
