@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$db_username = "root";
+$db_username = "ubuntu";
 $db_password = "MySQL@332";
 $database = "kedaigambar";
 $conn = mysqli_connect($host,$db_username,$db_password,$database);
