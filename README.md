@@ -3,16 +3,16 @@ on aws ubuntu 18.04 with the default username of ubuntu run the following with r
 <h4>option 1</h4>
 
 <h5>first</h5>
-```bash
-
+```
 apt update
 
 ```
 
 <h5>install bla bla</h5>
-```bash
+```
 apt install -y git apache2 mysql-server php libapache2-mod-php php-mysql php-gd php-zip php-cli
 ```
+
 <h5>replace default apache file</h5>
 ```bash
 echo 1 > /var/www/html/index.html
@@ -42,7 +42,7 @@ mysql -uroot -e "CREATE USER 'kedaigambar'@'%' IDENTIFIED BY 'MySQL@332'"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON kedaigambar.* TO 'kedaigambar'@'%'"
 ```
 <h5>load sql</h5>
-```bash
+```
 mysql -uroot kedaigambar < /var/www/html/kedaigambar/kedaigambar.sql
 ```
 <h5>remove sql file within the web root</h5>
