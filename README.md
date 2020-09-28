@@ -1,5 +1,7 @@
 on aws ubuntu 18.04 with the default username of ubuntu run the following with root priv
 
+<h4>option 1</h4>
+
 <h5>first</h5>
 apt update
 
@@ -33,7 +35,10 @@ mysql -uroot kedaigambar < /var/www/html/kedaigambar/kedaigambar.sql
 <h5>remove sql file within the web root</h5>
 rm -rf /var/www/html/kedaigambar/kedaigambar.sql
 
-or, put the following kedaigambar.sh file
+
+
+<h4>option 2</h4>
+put the following kedaigambar.sh file
 ```bash
 #!/bin/bash
 if [ "$EUID" -ne 0 ]
