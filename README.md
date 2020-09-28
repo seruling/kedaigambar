@@ -39,6 +39,7 @@ rm -rf /var/www/html/kedaigambar/kedaigambar.sql
 
 <h4>option 2</h4>
 put the following kedaigambar.sh file
+
 ```bash
 #!/bin/bash
 if [ "$EUID" -ne 0 ]
@@ -58,5 +59,6 @@ mysql -uroot -e "GRANT ALL PRIVILEGES ON kedaigambar.* TO 'kedaigambar'@'%'"
 mysql -uroot kedaigambar < /var/www/html/kedaigambar/kedaigambar.sql
 rm -rf /var/www/html/kedaigambar/kedaigambar.sql
 ```
+
 chmod +x kedaigambar.sh
 ./kedaigambar.sh
