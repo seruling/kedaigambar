@@ -3,6 +3,7 @@ on aws ubuntu 18.04 with the default username of ubuntu run the following with r
 <h3>option 1</h3>
 
 **first**
+
 apt update
 
 **install bla bla**
