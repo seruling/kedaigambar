@@ -16,3 +16,4 @@ mysql -uroot -e "GRANT ALL PRIVILEGES ON kedaigambar.* TO 'kedaigambar'@'%'"
 mysql -uroot kedaigambar < /var/www/html/kedaigambar/kedaigambar.sql
 rm -rf /var/www/html/kedaigambar/kedaigambar.sql
 rm -rf /var/www/html/kedaigambar/init_kedaigambar.sh
+rm -rf /var/www/html/kedaigambar/.git
