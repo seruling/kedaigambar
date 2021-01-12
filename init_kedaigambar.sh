@@ -14,6 +14,4 @@ mysql -uroot -e "create database kedaigambar"
 mysql -uroot -e "CREATE USER 'kedaigambar'@'%' IDENTIFIED BY 'MySQL@332'"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON kedaigambar.* TO 'kedaigambar'@'%'"
 mysql -uroot kedaigambar < /var/www/html/kedaigambar/kedaigambar.sql
-rm -rf /var/www/html/kedaigambar/kedaigambar.sql
 rm -rf /var/www/html/kedaigambar/init_kedaigambar.sh
-rm -rf /var/www/html/kedaigambar/.git
