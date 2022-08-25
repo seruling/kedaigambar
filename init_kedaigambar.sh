@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 apt update
-apt install -y git apache2 mysql-server php libapache2-mod-php php-mysql php-gd php-zip php-cli
+apt install -y git apache2 mysql-server php libapache2-mod-php php-mysql php-gd php-zip php-cli php-ssh2
 echo 1 > /var/www/html/index.html
 git clone https://github.com/seruling/kedaigambar.git /var/www/html/kedaigambar
 chown -R ubuntu:ubuntu /var/www/html/kedaigambar/
